@@ -240,11 +240,11 @@ def pe_task():
     #experimentReferences: list of fitId
 
     parameterId_1='K_1'
-    adjustable1=[parameterId_1,'main','K_1',1,1e4,4000,'linear',[fitId_1,fitId_2,fitId_3,fitId_4]]
+    adjustable1=[parameterId_1,'main','K_1',1,1e4,1000,'linear',[fitId_1,fitId_2,fitId_3,fitId_4]]
     parameterId_2='K_2'
     adjustable2=[parameterId_2,'main','K_2',1,1e3,10,'linear',[fitId_1,fitId_2,fitId_3,fitId_4]]
     parameterId_3='K_3'
-    adjustable3=[parameterId_3,'main','K_3',1,1e8,1000,'linear',[fitId_1,fitId_2,fitId_3,fitId_4]]
+    adjustable3=[parameterId_3,'main','K_3',1,5e7,1000,'linear',[fitId_1,fitId_2,fitId_3,fitId_4]]
     parameterId_4='K_4'
     adjustable4=[parameterId_4,'main','K_4',1,1e3,10,'linear',[fitId_1,fitId_2,fitId_3,fitId_4]]
     parameterId_5='kappa_1'
