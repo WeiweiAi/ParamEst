@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.cellml.org/cellml/1.1#" xmlns:cmeta="http://www.cellml.org/metadata/1.0#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqs="http://www.cellml.org/bqs/1.0#" xmlns:semsim="http://www.bhi.washington.edu/SemSim#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" name="Terkildsen_NaK_kinetic_Fig3c" cmeta:id="metaid0">
+  <units name="per_second">
+    <unit exponent="-1.0" units="second" />
+  </units>
+  <units name="C_per_mol">
+    <unit units="coulomb" />
+    <unit exponent="-1.0" units="mole" />
+  </units>
+  <units name="mJ_per_K_per_mol">
+    <unit exponent="-1.0" units="mole" />
+    <unit prefix="milli" units="joule" />
+    <unit exponent="-1.0" units="kelvin" />
+  </units>
+  <units name="mM">
+    <unit prefix="milli" units="mole" />
+  </units>
+  <units name="per_second_per_mM">
+    <unit exponent="-1.0" units="mM" />
+    <unit exponent="-1.0" units="second" />
+  </units>
+  <units name="mV">
+    <unit prefix="milli" units="volt" />
+  </units>
+  <units name="per_second3">
+    <unit exponent="-3.0" units="second" />
+  </units>
+  <units name="mV_per_sec">
+    <unit units="mV" />
+    <unit exponent="-1.0" units="second" />
+  </units>
+  <units name="per_second_per_mM2">
+    <unit exponent="-2.0" units="mM" />
+    <unit exponent="-1.0" units="second" />
+  </units>
+  <component name="environment">
+    <variable cmeta:id="environment.t" initial_value="0" name="t" units="second" />
+    <variable cmeta:id="environment.R" initial_value="8314" name="R" units="mJ_per_K_per_mol" />
+    <variable cmeta:id="environment.T" initial_value="297" name="T" units="kelvin" />
+    <variable cmeta:id="environment.F" initial_value="96485" name="F" units="C_per_mol" />
+    <variable cmeta:id="environment.K0d_nak_nai" initial_value="579.7295" name="K0d_nak_nai" units="mM" />
+    <variable cmeta:id="environment.K0d_nak_nae" initial_value="0.0349" name="K0d_nak_nae" units="mM" />
+    <variable cmeta:id="environment.Kd_nak_nai2" initial_value="5.6399" name="Kd_nak_nai2" units="mM" />
+    <variable cmeta:id="environment.Kd_nak_nae2" initial_value="1.0617e4" name="Kd_nak_nae2" units="mM" />
+    <variable cmeta:id="environment.Kd_nak_ke" initial_value="1.0817" name="Kd_nak_ke" units="mM" />
+    <variable cmeta:id="environment.Kd_nak_ki" initial_value="1.6795e4" name="Kd_nak_ki" units="mM" />
+    <variable cmeta:id="environment.Kd_nak_MgATP" initial_value="140.3709" name="Kd_nak_MgATP" units="mM" />
+    <variable cmeta:id="environment.rate_f_nak_1" initial_value="1.4232e3" name="rate_f_nak_1" units="per_second" />
+    <variable cmeta:id="environment.rate_f_nak_2" initial_value="1.1565e4" name="rate_f_nak_2" units="per_second" />
+    <variable cmeta:id="environment.rate_f_nak_3" initial_value="194.4506" name="rate_f_nak_3" units="per_second" />
+    <variable cmeta:id="environment.rate_f_nak_4" initial_value="3.0630e4" name="rate_f_nak_4" units="per_second" />
+    <variable cmeta:id="environment.rate_r_nak_1" initial_value="225.9048" name="rate_r_nak_1" units="per_second_per_mM" />
+    <variable cmeta:id="environment.rate_r_nak_2" initial_value="3.6355e4" name="rate_r_nak_2" units="per_second" />
+    <variable cmeta:id="environment.rate_r_nak_3" initial_value="2.8104e5" name="rate_r_nak_3" units="per_second_per_mM2" />
+    <variable cmeta:id="environment.rate_r_nak_4" initial_value="1.5740e6" name="rate_r_nak_4" units="per_second" />
+    <variable cmeta:id="environment.factor_nak_del" initial_value="-0.0550" name="factor_nak_del" units="dimensionless" />
+    <variable cmeta:id="environment.pKd_nak_hpi" initial_value="6.7700" name="pKd_nak_hpi" units="dimensionless" />
+    <variable cmeta:id="environment.Kd_nak_kpi" initial_value="292" name="Kd_nak_kpi" units="mM" />
+    <variable cmeta:id="environment.Kd_nak_napi" initial_value="224" name="Kd_nak_napi" units="mM" />
+    <variable cmeta:id="environment.Vm" initial_value="0" name="Vm" units="mV" />
+    <variable cmeta:id="environment.Ki" initial_value="0" name="Ki" units="mM" />
+    <variable cmeta:id="environment.Ke" initial_value="5" name="Ke" units="mM" />
+    <variable cmeta:id="environment.Nai" initial_value="40" name="Nai" units="mM" />
+    <variable cmeta:id="environment.Nae" initial_value="0" name="Nae" units="mM" />
+    <variable cmeta:id="environment.MgATP" initial_value="0" name="MgATP" units="mM" />
+    <variable cmeta:id="environment.MgADP" initial_value="0" name="MgADP" units="mM" />
+    <variable cmeta:id="environment.Pi_total" initial_value="0" name="Pi_total" units="mM" />
+    <variable cmeta:id="environment.H" initial_value="3.9812e-5" name="H" units="mM" />
+    <variable cmeta:id="environment.Pi" name="Pi" units="mM" />
+    <variable cmeta:id="environment.Kd_nak_nae1" name="Kd_nak_nae1" units="mM" />
+    <variable cmeta:id="environment.Kd_nak_nai1" name="Kd_nak_nai1" units="mM" />
+    <variable cmeta:id="environment.Nae_bound1" name="Nae_bound1" units="dimensionless" />
+    <variable cmeta:id="environment.Nai_bound1" name="Nai_bound1" units="dimensionless" />
+    <variable cmeta:id="environment.Nae_bound2" name="Nae_bound2" units="dimensionless" />
+    <variable cmeta:id="environment.Nai_bound2" name="Nai_bound2" units="dimensionless" />
+    <variable cmeta:id="environment.Ke_bound" name="Ke_bound" units="dimensionless" />
+    <variable cmeta:id="environment.Ki_bound" name="Ki_bound" units="dimensionless" />
+    <variable cmeta:id="environment.MgATP_bound" name="MgATP_bound" units="dimensionless" />
+    <variable cmeta:id="environment.alpha_f_nak_1" name="alpha_f_nak_1" units="per_second" />
+    <variable cmeta:id="environment.alpha_f_nak_2" name="alpha_f_nak_2" units="per_second" />
+    <variable cmeta:id="environment.alpha_f_nak_3" name="alpha_f_nak_3" units="per_second" />
+    <variable cmeta:id="environment.alpha_f_nak_4" name="alpha_f_nak_4" units="per_second" />
+    <variable cmeta:id="environment.alpha_r_nak_1" name="alpha_r_nak_1" units="per_second" />
+    <variable cmeta:id="environment.alpha_r_nak_2" name="alpha_r_nak_2" units="per_second" />
+    <variable cmeta:id="environment.alpha_r_nak_3" name="alpha_r_nak_3" units="per_second" />
+    <variable cmeta:id="environment.alpha_r_nak_4" name="alpha_r_nak_4" units="per_second" />
+    <variable cmeta:id="environment.sig_nak" name="sig_nak" units="per_second3" />
+    <variable cmeta:id="environment.v_cyc_nak" name="v_cyc_nak" units="per_second" />
+    <variable cmeta:id="environment.v_cyc_nak_normalised" name="v_cyc_nak_normalised" units="dimensionless" />
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+        <eq />
+        <ci>Pi</ci>
+        <apply>
+          <divide />
+          <ci>Pi_total</ci>
+          <apply>
+            <plus />
+            <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">1</cn>
+            <apply>
+              <divide />
+              <ci>Ki</ci>
+              <ci>Kd_nak_kpi</ci>
+            </apply>
+            <apply>
+              <divide />
+              <ci>H</ci>
+              <apply>
+                <power />
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">10</cn>
+                <apply>
+                  <minus />
+                  <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">3.0</cn>
+                  <ci>pKd_nak_hpi</ci>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <divide />
+              <ci>Nai</ci>
+              <ci>Kd_nak_napi</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>MgATP</ci>
+        </apply>
+        <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="mM_per_sec">1</cn>
+      </apply>
+    </math>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+        <eq />
+        <ci>Kd_nak_nae1</ci>
+        <apply>
+          <times />
+          <ci>K0d_nak_nae</ci>
+          <apply>
+            <exp />
+            <apply>
+              <divide />
+              <apply>
+                <times />
+                <apply>
+                  <plus />
+                  <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">1.0</cn>
+                  <ci>factor_nak_del</ci>
+                </apply>
+                <ci>F</ci>
+                <ci>Vm</ci>
+              </apply>
+              <apply>
+                <times />
+                <ci>R</ci>
+                <ci>T</ci>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Kd_nak_nai1</ci>
+        <apply>
+          <times />
+          <ci>K0d_nak_nai</ci>
+          <apply>
+            <exp />
+            <apply>
+              <divide />
+              <apply>
+                <times />
+                <ci>factor_nak_del</ci>
+                <ci>F</ci>
+                <ci>Vm</ci>
+              </apply>
+              <apply>
+                <times />
+                <ci>R</ci>
+                <ci>T</ci>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Nae_bound1</ci>
+        <apply>
+          <divide />
+          <ci>Nae</ci>
+          <ci>Kd_nak_nae1</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Nai_bound1</ci>
+        <apply>
+          <divide />
+          <ci>Nai</ci>
+          <ci>Kd_nak_nai1</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Nae_bound2</ci>
+        <apply>
+          <divide />
+          <ci>Nae</ci>
+          <ci>Kd_nak_nae2</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Nai_bound2</ci>
+        <apply>
+          <divide />
+          <ci>Nai</ci>
+          <ci>Kd_nak_nai2</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Ke_bound</ci>
+        <apply>
+          <divide />
+          <ci>Ke</ci>
+          <ci>Kd_nak_ke</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Ki_bound</ci>
+        <apply>
+          <divide />
+          <ci>Ki</ci>
+          <ci>Kd_nak_ki</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>MgATP_bound</ci>
+        <apply>
+          <divide />
+          <ci>MgATP</ci>
+          <ci>Kd_nak_MgATP</ci>
+        </apply>
+      </apply>
+    </math>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+        <eq />
+        <ci>alpha_f_nak_1</ci>
+        <apply>
+          <divide />
+          <apply>
+            <times />
+            <ci>rate_f_nak_1</ci>
+            <ci>Nai_bound1</ci>
+            <apply>
+              <power />
+              <ci>Nai_bound2</ci>
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+            </apply>
+          </apply>
+          <apply>
+            <minus />
+            <apply>
+              <plus />
+              <apply>
+                <times />
+                <ci>Nai_bound1</ci>
+                <apply>
+                  <power />
+                  <ci>Nai_bound2</ci>
+                  <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+                </apply>
+              </apply>
+              <apply>
+                <power />
+                <apply>
+                  <plus />
+                  <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">1</cn>
+                  <ci>Nai_bound2</ci>
+                </apply>
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+              </apply>
+              <apply>
+                <power />
+                <apply>
+                  <plus />
+                  <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">1.0</cn>
+                  <ci>Ki_bound</ci>
+                </apply>
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+              </apply>
+            </apply>
+            <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">1.0</cn>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>alpha_f_nak_2</ci>
+        <ci>rate_f_nak_2</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>alpha_f_nak_3</ci>
+        <apply>
+          <divide />
+          <apply>
+            <times />
+            <ci>rate_f_nak_3</ci>
+            <apply>
+              <power />
+              <ci>Ke_bound</ci>
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+            </apply>
+          </apply>
+          <apply>
+            <minus />
+            <apply>
+              <plus />
+              <apply>
+                <times />
+                <ci>Nae_bound1</ci>
+                <apply>
+                  <power />
+                  <ci>Nae_bound2</ci>
+                  <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+                </apply>
+              </apply>
+              <apply>
+                <power />
+                <apply>
+                  <plus />
+                  <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">1.0</cn>
+                  <ci>Nae_bound2</ci>
+                </apply>
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+              </apply>
+              <apply>
+                <power />
+                <apply>
+                  <plus />
+                  <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">1.0</cn>
+                  <ci>Ke_bound</ci>
+                </apply>
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+              </apply>
+            </apply>
+            <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">1.0</cn>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>alpha_f_nak_4</ci>
+        <apply>
+          <divide />
+          <apply>
+            <times />
+            <ci>rate_f_nak_4</ci>
+            <ci>MgATP_bound</ci>
+          </apply>
+          <apply>
+            <plus />
+            <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">1.0</cn>
+            <ci>MgATP_bound</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>alpha_r_nak_1</ci>
+        <apply>
+          <times />
+          <ci>rate_r_nak_1</ci>
+          <ci>MgADP</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>alpha_r_nak_2</ci>
+        <apply>
+          <divide />
+          <apply>
+            <times />
+            <ci>rate_r_nak_2</ci>
+            <ci>Nae_bound1</ci>
+            <apply>
+              <power />
+              <ci>Nae_bound2</ci>
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+            </apply>
+          </apply>
+          <apply>
+            <minus />
+            <apply>
+              <plus />
+              <apply>
+                <times />
+                <ci>Nae_bound1</ci>
+                <apply>
+                  <power />
+                  <ci>Nae_bound2</ci>
+                  <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+                </apply>
+              </apply>
+              <apply>
+                <power />
+                <apply>
+                  <plus />
+                  <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">1.0</cn>
+                  <ci>Nae_bound2</ci>
+                </apply>
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+              </apply>
+              <apply>
+                <power />
+                <apply>
+                  <plus />
+                  <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">1.0</cn>
+                  <ci>Ke_bound</ci>
+                </apply>
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+              </apply>
+            </apply>
+            <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">1.0</cn>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>alpha_r_nak_3</ci>
+        <apply>
+          <divide />
+          <apply>
+            <times />
+            <ci>rate_r_nak_3</ci>
+            <ci>Pi</ci>
+            <ci>H</ci>
+          </apply>
+          <apply>
+            <plus />
+            <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">1.0</cn>
+            <ci>MgATP_bound</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>alpha_r_nak_4</ci>
+        <apply>
+          <divide />
+          <apply>
+            <times />
+            <ci>rate_r_nak_4</ci>
+            <apply>
+              <power />
+              <ci>Ki_bound</ci>
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+            </apply>
+          </apply>
+          <apply>
+            <minus />
+            <apply>
+              <plus />
+              <apply>
+                <times />
+                <ci>Nai_bound1</ci>
+                <apply>
+                  <power />
+                  <ci>Nai_bound2</ci>
+                  <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+                </apply>
+              </apply>
+              <apply>
+                <power />
+                <apply>
+                  <plus />
+                  <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">1.0</cn>
+                  <ci>Nai_bound2</ci>
+                </apply>
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+              </apply>
+              <apply>
+                <power />
+                <apply>
+                  <plus />
+                  <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">1</cn>
+                  <ci>Ki_bound</ci>
+                </apply>
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+              </apply>
+            </apply>
+            <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">1</cn>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>sig_nak</ci>
+        <apply>
+          <plus />
+          <apply>
+            <times />
+            <ci>alpha_r_nak_1</ci>
+            <ci>alpha_r_nak_2</ci>
+            <ci>alpha_r_nak_3</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>alpha_r_nak_1</ci>
+            <ci>alpha_r_nak_2</ci>
+            <ci>alpha_f_nak_4</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>alpha_r_nak_1</ci>
+            <ci>alpha_f_nak_3</ci>
+            <ci>alpha_f_nak_4</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>alpha_f_nak_2</ci>
+            <ci>alpha_f_nak_3</ci>
+            <ci>alpha_f_nak_4</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>alpha_r_nak_2</ci>
+            <ci>alpha_r_nak_3</ci>
+            <ci>alpha_r_nak_4</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>alpha_f_nak_1</ci>
+            <ci>alpha_r_nak_2</ci>
+            <ci>alpha_r_nak_3</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>alpha_f_nak_1</ci>
+            <ci>alpha_r_nak_2</ci>
+            <ci>alpha_f_nak_4</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>alpha_f_nak_1</ci>
+            <ci>alpha_f_nak_3</ci>
+            <ci>alpha_f_nak_4</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>alpha_r_nak_1</ci>
+            <ci>alpha_r_nak_3</ci>
+            <ci>alpha_r_nak_4</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>alpha_f_nak_2</ci>
+            <ci>alpha_r_nak_3</ci>
+            <ci>alpha_r_nak_4</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>alpha_f_nak_1</ci>
+            <ci>alpha_f_nak_2</ci>
+            <ci>alpha_r_nak_3</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>alpha_f_nak_1</ci>
+            <ci>alpha_f_nak_2</ci>
+            <ci>alpha_f_nak_4</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>alpha_r_nak_1</ci>
+            <ci>alpha_r_nak_2</ci>
+            <ci>alpha_r_nak_4</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>alpha_r_nak_1</ci>
+            <ci>alpha_f_nak_3</ci>
+            <ci>alpha_r_nak_4</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>alpha_f_nak_2</ci>
+            <ci>alpha_f_nak_3</ci>
+            <ci>alpha_r_nak_4</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>alpha_f_nak_1</ci>
+            <ci>alpha_f_nak_2</ci>
+            <ci>alpha_f_nak_3</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_cyc_nak</ci>
+        <apply>
+          <divide />
+          <apply>
+            <minus />
+            <apply>
+              <times />
+              <ci>alpha_f_nak_1</ci>
+              <ci>alpha_f_nak_2</ci>
+              <ci>alpha_f_nak_3</ci>
+              <ci>alpha_f_nak_4</ci>
+            </apply>
+            <apply>
+              <times />
+              <ci>alpha_r_nak_1</ci>
+              <ci>alpha_r_nak_2</ci>
+              <ci>alpha_r_nak_3</ci>
+              <ci>alpha_r_nak_4</ci>
+            </apply>
+          </apply>
+          <ci>sig_nak</ci>
+        </apply>
+      </apply>
+      <!--Normalising to cycle velocity at MgATP = 0.6 mM-->
+      <apply>
+        <eq />
+        <ci>v_cyc_nak_normalised</ci>
+        <apply>
+          <divide />
+          <ci>v_cyc_nak</ci>
+          <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="per_second">34.0994</cn>
+        </apply>
+      </apply>
+    </math>
+  </component>
+  <rdf:RDF xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:ro="http://www.obofoundry.org/ro/ro.owl#" xmlns:opb="http://bhi.washington.edu/OPB#">
+    <rdf:Description rdf:about="#environment.K0d_nak_nai">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_0">
+          <semsim:physicalPropertyOf>
+            <rdf:Description rdf:about="#entity_0">
+              <ro:part_of>
+                <rdf:Description rdf:about="#entity_1">
+                  <semsim:hasPhysicalDefinition rdf:resource="http://identifiers.org/fma/FMA:14067" />
+                </rdf:Description>
+              </ro:part_of>
+              <semsim:name>Voltage-dependent dissociation constant of intracellular Na+</semsim:name>
+            </rdf:Description>
+          </semsim:physicalPropertyOf>
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.K0d_nak_nae">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_1">
+          <semsim:physicalPropertyOf>
+            <rdf:Description rdf:about="#entity_2">
+              <ro:part_of rdf:resource="#entity_1" />
+              <semsim:name>Voltage-dependent dissociation constant of extracellular Na+</semsim:name>
+            </rdf:Description>
+          </semsim:physicalPropertyOf>
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Kd_nak_MgATP">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_4">
+          <semsim:physicalPropertyOf>
+            <rdf:Description rdf:about="#entity_4">
+              <ro:part_of rdf:resource="#entity_1" />
+              <semsim:name>Dissociation constant of MgATP</semsim:name>
+            </rdf:Description>
+          </semsim:physicalPropertyOf>
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Kd_nak_nae1">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_7">
+          <semsim:physicalPropertyOf>
+            <rdf:Description rdf:about="#entity_6">
+              <semsim:name>Voltage-independent dissociation of extracellular Na+</semsim:name>
+            </rdf:Description>
+          </semsim:physicalPropertyOf>
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#metaid0" semsim:modelName="Terkildsen_NaK_kinetic_Fig3c">
+      <semsim:modelName>Terkildsen_NaK_kinetic</semsim:modelName>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Kd_nak_nai1">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_8">
+          <semsim:physicalPropertyOf>
+            <rdf:Description rdf:about="#entity_7">
+              <semsim:name>Voltage-independent dissociation constant of intracellular Na+</semsim:name>
+            </rdf:Description>
+          </semsim:physicalPropertyOf>
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.v_cyc_nak">
+      <dcterms:description>Cycle velocity</dcterms:description>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Vm">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_5">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00378" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+      <dcterms:description>Membrane potential</dcterms:description>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Pi">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_6">
+          <semsim:physicalPropertyOf>
+            <rdf:Description rdf:about="#entity_5">
+              <ro:part_of rdf:resource="#entity_1" />
+              <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/chebi/CHEBI:24838" />
+            </rdf:Description>
+          </semsim:physicalPropertyOf>
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.t">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_01023" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Kd_nak_nae2">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_3">
+          <semsim:physicalPropertyOf>
+            <rdf:Description rdf:about="#entity_3">
+              <semsim:name>Voltage-independent dissociation constant for extracellular Na+</semsim:name>
+            </rdf:Description>
+          </semsim:physicalPropertyOf>
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+    <rdf:Description rdf:about="#environment.Kd_nak_nai2">
+      <semsim:isComputationalComponentFor>
+        <rdf:Description rdf:about="#property_2">
+          <semsim:hasPhysicalDefinition rdf:resource="https://identifiers.org/opb/OPB_00340" />
+        </rdf:Description>
+      </semsim:isComputationalComponentFor>
+    </rdf:Description>
+  </rdf:RDF>
+</model>
+

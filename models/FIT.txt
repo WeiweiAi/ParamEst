@@ -1,0 +1,64 @@
+6 STATE
+The best residuals sum is: 44.499568307537984
+The estimated value for variable K_1 in component environment is:
+13085378.038167767
+The estimated value for variable K_3 in component environment is:
+46.24091666474313
+The estimated value for variable K_6 in component environment is:
+79.09015560598799
+The estimated value for variable K_7 in component environment is:
+4239.416835123694
+The estimated value for variable kappa_3 in component environment is:
+861399.5138047301
+The estimated value for variable kappa_6 in component environment is:
+1.4100547742408052
+The estimated value for variable K_13 in component environment is:
+0.6020622798357556
+The estimated value for variable kappa_1 in component environment is:
+6.973455976480863
+The estimated value for variable K_14 in component environment is:
+69.38568269665376
+The estimated value for variable kappa_13 in component environment is:
+475.81557480252013
+The estimated value for variable kappa_15 in component environment is:
+0.035418056157766185
+Values of objective function at the solution: 44.50568219839007
+The estimated value for variable K_1 in component environment is:
+13087431.136925228
+The estimated value for variable K_3 in component environment is:
+46.24801497528625
+The estimated value for variable K_6 in component environment is:
+79.1024079699036
+The estimated value for variable K_7 in component environment is:
+4240.0818437292855
+The estimated value for variable kappa_3 in component environment is:
+861534.6519025041
+The estimated value for variable kappa_6 in component environment is:
+1.4101191119320333
+The estimated value for variable K_13 in component environment is:
+0.6021551745477325
+The estimated value for variable kappa_1 in component environment is:
+6.9743932131387965
+The estimated value for variable K_14 in component environment is:
+69.39641241646916
+The estimated value for variable kappa_13 in component environment is:
+475.8900734786994
+The estimated value for variable kappa_15 in component environment is:
+0.035423456358931626
+The full optimization result is:
+             message: Maximum number of iterations has been exceeded.
+             success: False
+                 fun: 44.50568219839007
+                   x: [ 1.309e+07  4.625e+01  7.910e+01  4.240e+03
+                        8.615e+05  1.410e+00  6.022e-01  6.974e+00
+                        6.940e+01  4.759e+02  3.542e-02]
+                 nit: 2000
+                nfev: 330417
+          population: [[ 1.309e+07  4.625e+01 ...  4.759e+02  3.542e-02]
+                       [ 1.611e+07  4.563e+01 ...  4.919e+02  4.271e-02]
+                       ...
+                       [ 9.943e+06  4.241e+01 ...  4.643e+02  4.122e-02]
+                       [ 6.872e+06  5.046e+01 ...  5.510e+02  3.939e-02]]
+ population_energies: [ 4.451e+01  4.486e+01 ...  4.571e+01  4.868e+01]
+    Generating output 1: `report_pe_task_NKE_pump_BG_6states` ...Reports exported to CSV.
+ QUEUED

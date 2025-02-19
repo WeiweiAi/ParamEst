@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<model name="Terkildsen_NaK_kinetic_Fig2a" xmlns="http://www.cellml.org/cellml/1.1#" xmlns:cellml="http://www.cellml.org/cellml/1.1#" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <import xlink:href="Terkildsen_NaK_kinetic_modular.cellml">
+        <units name="per_second" units_ref="per_second"/>
+        <units name="mV" units_ref="mV"/>
+        <units name="mV_per_sec" units_ref="mV_per_sec"/>
+        <units name="mM" units_ref="mM"/>
+    </import>
+    <import xlink:href="Terkildsen_NaK_kinetic_modular.cellml">
+        <component component_ref="environment" name="NaK_ATPase"/>
+    </import>
+    <import xlink:href="Terkildsen_NaK_kinetic_modular.cellml">
+        <component component_ref="environment" name="NaK_ATPase2"/>
+    </import>
+    <import xlink:href="Terkildsen_NaK_kinetic_modular.cellml">
+        <component component_ref="environment" name="NaK_ATPase3"/>
+    </import>
+    <import xlink:href="Terkildsen_NaK_kinetic_modular.cellml">
+        <component component_ref="environment" name="NaK_ATPase4"/>
+    </import>
+    <component name="environment">
+        <variable initial_value="0" name="t" units="second"/>
+        <variable initial_value="1.5" name="Nae1" public_interface="out" units="mM"/>
+        <variable initial_value="50" name="Nae2" public_interface="out" units="mM"/>
+        <variable initial_value="100" name="Nae3" public_interface="out" units="mM"/>
+        <variable initial_value="150" name="Nae4" public_interface="out" units="mM"/>
+        <variable initial_value="-120" name="Vm" public_interface="out" units="mV"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>Vm</ci>
+                </apply>
+                <cn cellml:units="mV_per_sec">1</cn>
+            </apply>
+        </math>
+        <variable name="v_cyc_nak1" public_interface="in" units="per_second"/>
+        <variable name="v_cyc_nak2" public_interface="in" units="per_second"/>
+        <variable name="v_cyc_nak3" public_interface="in" units="per_second"/>
+        <variable name="v_cyc_nak4" public_interface="in" units="per_second"/>
+        <!-- Use fudge factors to normalise cycling rates to 55s^-1 at 40mV-->
+        <variable name="scaling_factor1" units="dimensionless"/>
+        <variable name="scaling_factor2" units="dimensionless"/>
+        <variable name="scaling_factor3" units="dimensionless"/>
+        <variable name="scaling_factor4" units="dimensionless"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>scaling_factor1</ci>
+                <apply>
+                    <divide/>
+                    <cn cellml:units="per_second">55</cn>
+                    <cn cellml:units="per_second">55.61648</cn>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>scaling_factor2</ci>
+                <apply>
+                    <divide/>
+                    <cn cellml:units="per_second">55</cn>
+                    <cn cellml:units="per_second">55.59023</cn>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>scaling_factor3</ci>
+                <apply>
+                    <divide/>
+                    <cn cellml:units="per_second">55</cn>
+                    <cn cellml:units="per_second">55.44182</cn>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>scaling_factor4</ci>
+                <apply>
+                    <divide/>
+                    <cn cellml:units="per_second">55</cn>
+                    <cn cellml:units="per_second">55.05310</cn>
+                </apply>
+            </apply>
+        </math>
+        <variable name="scaled_v_cyc1" units="per_second"/>
+        <variable name="scaled_v_cyc2" units="per_second"/>
+        <variable name="scaled_v_cyc3" units="per_second"/>
+        <variable name="scaled_v_cyc4" units="per_second"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>scaled_v_cyc1</ci>
+                <apply>
+                    <times/>
+                    <ci>scaling_factor1</ci>
+                    <ci>v_cyc_nak1</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>scaled_v_cyc2</ci>
+                <apply>
+                    <times/>
+                    <ci>scaling_factor2</ci>
+                    <ci>v_cyc_nak2</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>scaled_v_cyc3</ci>
+                <apply>
+                    <times/>
+                    <ci>scaling_factor3</ci>
+                    <ci>v_cyc_nak3</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>scaled_v_cyc4</ci>
+                <apply>
+                    <times/>
+                    <ci>scaling_factor4</ci>
+                    <ci>v_cyc_nak4</ci>
+                </apply>
+            </apply>
+        </math>
+    </component>
+    <connection>
+        <map_components component_1="environment" component_2="NaK_ATPase"/>
+        <map_variables variable_1="Nae1" variable_2="Nae"/>
+        <map_variables variable_1="Vm" variable_2="Vm"/>
+        <map_variables variable_1="v_cyc_nak1" variable_2="v_cyc_nak"/>
+    </connection>
+    <connection>
+        <map_components component_1="environment" component_2="NaK_ATPase2"/>
+        <map_variables variable_1="Nae2" variable_2="Nae"/>
+        <map_variables variable_1="Vm" variable_2="Vm"/>
+        <map_variables variable_1="v_cyc_nak2" variable_2="v_cyc_nak"/>
+    </connection>
+    <connection>
+        <map_components component_1="environment" component_2="NaK_ATPase3"/>
+        <map_variables variable_1="Nae3" variable_2="Nae"/>
+        <map_variables variable_1="Vm" variable_2="Vm"/>
+        <map_variables variable_1="v_cyc_nak3" variable_2="v_cyc_nak"/>
+    </connection>
+    <connection>
+        <map_components component_1="environment" component_2="NaK_ATPase4"/>
+        <map_variables variable_1="Nae4" variable_2="Nae"/>
+        <map_variables variable_1="Vm" variable_2="Vm"/>
+        <map_variables variable_1="v_cyc_nak4" variable_2="v_cyc_nak"/>
+    </connection>
+</model>

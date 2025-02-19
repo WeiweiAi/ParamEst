@@ -1,0 +1,9 @@
+[submodule "sedmlEditor"]
+	path = sedmlEditor
+	url = https://github.com/WeiweiAi/sedmlEditor
+[submodule "sedCellMLPy"]
+	path = sedCellMLPy
+	url = https://github.com/WeiweiAi/sedCellMLPy
+[submodule "dataPlot"]
+	path = dataPlot
+	url = https://github.com/WeiweiAi/dataPlot

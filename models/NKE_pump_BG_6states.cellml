@@ -1,0 +1,1697 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<model cmeta:id="metaid0" name="Terkildsen_NaK_BG_Fig5" xmlns="http://www.cellml.org/cellml/1.1#" xmlns:cellml="http://www.cellml.org/cellml/1.1#" xmlns:cmeta="http://www.cellml.org/metadata/1.0#">
+    <units name="C_per_mol">
+        <unit units="coulomb"/>
+        <unit exponent="-1.0" units="mole"/>
+    </units>
+    <units name="mM">
+        <unit exponent="-1.0" units="litre"/>
+        <unit prefix="milli" units="mole"/>
+    </units>
+    <units name="volt_per_sec">
+        <unit exponent="-1.0" units="second"/>
+        <unit units="volt"/>
+    </units>
+    <units name="fmol_per_sec">
+        <unit units="fmol"/>
+        <unit exponent="-1.0" units="second"/>
+    </units>
+    <units name="J_per_mol">
+        <unit exponent="-1.0" units="mole"/>
+        <unit units="joule"/>
+    </units>
+    <units name="J_per_K_per_mol">
+        <unit units="joule"/>
+        <unit exponent="-1.0" units="kelvin"/>
+        <unit exponent="-1.0" units="mole"/>
+    </units>
+    <units name="fmol">
+        <unit prefix="femto" units="mole"/>
+    </units>
+    <units name="per_fmol">
+        <unit exponent="-1.0" units="fmol"/>
+    </units>
+    <units name="fC">
+        <unit prefix="femto" units="coulomb"/>
+    </units>
+    <units name="pL">
+        <unit prefix="pico" units="litre"/>
+    </units>
+    <units name="fF">
+        <unit prefix="femto" units="farad"/>
+    </units>
+    <units name="fA">
+        <unit prefix="femto" units="ampere"/>
+    </units>
+    <component name="environment">
+        <variable name="t" units="second"/>
+        <variable initial_value="8.314" name="R" units="J_per_K_per_mol"/>
+        <variable initial_value="310" name="T" units="kelvin"/>
+        <variable initial_value="96485" name="F" units="C_per_mol"/>
+        <variable initial_value="153400" name="C_m" units="fF"/>
+        <variable initial_value="101619537.2009" name="K_1" units="per_fmol"/>
+        <!--       var K_10: per_fmol {init: 20459.5509};-->
+        <!--     var K_11: per_fmol {init: 121.4456};-->
+        <!--  var K_12: per_fmol {init: 3.1436};-->
+        <variable initial_value="0.32549" name="K_13" units="per_fmol"/>
+        <variable initial_value="156.3283" name="K_14" units="per_fmol"/>
+        <!--   var K_15: per_fmol {init: 1977546.8577};-->
+        <!--  var K_2: per_fmol {init: 63209.8623};-->
+        <variable initial_value="157.2724" name="K_3" units="per_fmol"/>
+        <!--     var K_4: per_fmol {init: 14.0748};-->
+        <!--      var K_5: per_fmol {init: 5.0384};-->
+        <variable initial_value="92.6964" name="K_6" units="per_fmol"/>
+        <variable initial_value="4854.5924" name="K_7" units="per_fmol"/>
+        <!--   var K_8: per_fmol {init: 15260.9786};-->
+        <!--       var K_9: per_fmol {init: 13787022.8009};-->
+        <variable initial_value="0.04565" name="K_H" units="per_fmol"/>
+        <variable initial_value="0.009236" name="K_Ke" units="per_fmol"/>
+        <variable initial_value="0.0012595" name="K_Ki" units="per_fmol"/>
+        <variable initial_value="7.976e-05" name="K_MgADP" units="per_fmol"/>
+        <variable initial_value="2.3715" name="K_MgATP" units="per_fmol"/>
+        <variable initial_value="0.0061242" name="K_Nae" units="per_fmol"/>
+        <variable initial_value="0.00083514" name="K_Nai" units="per_fmol"/>
+        <variable initial_value="0.04565" name="K_P" units="per_fmol"/>
+        <variable initial_value="330.5462" name="kappa_1" units="fmol_per_sec"/>
+        <!--      var kappa_10: fmol_per_sec {init: 259461.6507};-->
+        <!--    var kappa_11: fmol_per_sec {init: 172042.3334};-->
+        <!--  var kappa_12: fmol_per_sec {init: 6646440.3909};-->
+        <variable initial_value="597.4136" name="kappa_13" units="fmol_per_sec"/>
+        <!--   var kappa_14: fmol_per_sec {init: 70.9823};-->
+        <variable initial_value="0.015489" name="kappa_15" units="fmol_per_sec"/>
+        <!--   var kappa_2: fmol_per_sec {init: 132850.9145};-->
+        <variable initial_value="200356.0223" name="kappa_3" units="fmol_per_sec"/>
+        <!--       var kappa_4: fmol_per_sec {init: 2238785.3951};-->
+        <!--     var kappa_5: fmol_per_sec {init: 10787.9052};-->
+        <variable initial_value="15.3533" name="kappa_6" units="fmol_per_sec"/>
+        <!--   var kappa_7: fmol_per_sec {init: 2.3822};-->
+        <variable initial_value="2.2855" name="kappa_8" units="fmol_per_sec"/>
+        <!--    var kappa_9: fmol_per_sec {init: 1540.1349};-->
+        <variable initial_value="-0.054951" name="z_5" units="dimensionless"/>
+        <variable initial_value="-0.94505" name="z_8" units="dimensionless"/>
+        <variable name="zF_5" units="C_per_mol"/>
+        <variable name="zF_8" units="C_per_mol"/>
+        <variable name="x_H" units="fmol"/>
+        <variable name="x_Ke" units="fmol"/>
+        <variable name="x_Ki" units="fmol"/>
+        <variable name="x_MgADP" units="fmol"/>
+        <variable name="x_MgATP" units="fmol"/>
+        <variable name="x_Nae" units="fmol"/>
+        <variable name="x_Nai" units="fmol"/>
+        <variable initial_value="0.8590" name="x_P7" units="fmol"/>
+        <variable name="x_P_i" units="fmol"/>
+        <variable initial_value="-18408" name="q_mem" units="fC"/>
+        <variable initial_value="0.0100192141898171" name="x_P14" units="fmol"/>
+        <!--  var x_P15: fmol {init: 0.000542078472642269};-->
+        <variable initial_value="6.50836196830909e-10" name="x_P1" units="fmol"/>
+        <!--     var x_P2: fmol {init: 2.95183390539001e-09};-->
+        <variable initial_value="0.00292644413780957" name="x_P3" units="fmol"/>
+        <!--     var x_P4: fmol {init: 0.0324604777886237};
+      var x_P5: fmol {init: 0.143884405731667};-->
+        <!--      var x_P5: fmol {init: 0.335825914162104};-->
+        <variable initial_value="0.0154965229998754" name="x_P6" units="fmol"/>
+        <!--       var x_P10: fmol {init: 7.9739635710452e-05};
+       var x_P11: fmol {init: 0.00282186679243115};-->
+        <!-- var x_P11: fmol {init: 0.00452667699947976};-->
+        <!--    var x_P12: fmol {init: 0.0342100433177498};-->
+        <variable initial_value="0.112426414453276" name="x_P13" units="fmol"/>
+        <!--   var x_P8: fmol {init: 0.205925121656119};-->
+        <!--       var x_P9: fmol {init: 3.04943227753825e-06};-->
+        <variable name="x_tot" units="fmol"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>x_tot</ci>
+                <apply>
+                    <plus/>
+                    <ci>x_P1</ci>
+                    <ci>x_P3</ci>
+                    <ci>x_P6</ci>
+                    <ci>x_P13</ci>
+                    <ci>x_P7</ci>
+                    <ci>x_P14</ci>
+                </apply>
+            </apply>
+        </math>
+        <variable initial_value="1e-3" name="small_C" units="mM"/>
+        <variable initial_value="38" name="W_i" units="pL"/>
+        <variable initial_value="5.182" name="W_e" units="pL"/>
+        <variable initial_value="5.4" name="c_Ke" units="mM"/>
+        <variable initial_value="small_C" name="c_Ki" units="mM"/>
+        <variable initial_value="small_C" name="c_MgADP" units="mM"/>
+        <variable initial_value="10" name="c_MgATP" units="mM"/>
+        <variable initial_value="150" name="c_Nae" units="mM"/>
+        <variable initial_value="50" name="c_Nai" units="mM"/>
+        <variable initial_value="small_C" name="c_P_i" units="mM"/>
+        <variable initial_value="7.4" name="pH" units="dimensionless"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>x_Nae</ci>
+                <apply>
+                    <times/>
+                    <ci>c_Nae</ci>
+                    <ci>W_e</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>x_Nai</ci>
+                <apply>
+                    <times/>
+                    <ci>c_Nai</ci>
+                    <ci>W_i</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>x_Ke</ci>
+                <apply>
+                    <times/>
+                    <ci>c_Ke</ci>
+                    <ci>W_e</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>x_Ki</ci>
+                <apply>
+                    <times/>
+                    <ci>c_Ki</ci>
+                    <ci>W_i</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>x_P_i</ci>
+                <apply>
+                    <times/>
+                    <ci>c_P_i</ci>
+                    <ci>W_i</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>x_MgADP</ci>
+                <apply>
+                    <times/>
+                    <ci>c_MgADP</ci>
+                    <ci>W_i</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>x_MgATP</ci>
+                <apply>
+                    <times/>
+                    <ci>c_MgATP</ci>
+                    <ci>W_i</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>x_H</ci>
+                <apply>
+                    <times/>
+                    <apply>
+                        <power/>
+                        <cn cellml:units="dimensionless">10</cn>
+                        <apply>
+                            <minus/>
+                            <ci>pH</ci>
+                        </apply>
+                    </apply>
+                    <cn cellml:units="mM">1000</cn>
+                    <ci>W_i</ci>
+                </apply>
+            </apply>
+        </math>
+        <variable cmeta:id="environment.mu_H" name="mu_H" units="J_per_mol"/>
+        <variable name="v_H" units="fmol_per_sec"/>
+        <variable cmeta:id="environment.mu_Ke" name="mu_Ke" units="J_per_mol"/>
+        <variable name="v_Ke" units="fmol_per_sec"/>
+        <variable cmeta:id="environment.mu_Ki" name="mu_Ki" units="J_per_mol"/>
+        <variable name="v_Ki" units="fmol_per_sec"/>
+        <variable cmeta:id="environment.mu_MgADP" name="mu_MgADP" units="J_per_mol"/>
+        <variable name="v_MgADP" units="fmol_per_sec"/>
+        <variable cmeta:id="environment.mu_MgATP" name="mu_MgATP" units="J_per_mol"/>
+        <variable name="v_MgATP" units="fmol_per_sec"/>
+        <variable cmeta:id="environment.mu_Nae" name="mu_Nae" units="J_per_mol"/>
+        <variable name="v_Nae" units="fmol_per_sec"/>
+        <variable cmeta:id="environment.mu_Nai" name="mu_Nai" units="J_per_mol"/>
+        <variable name="v_Nai" units="fmol_per_sec"/>
+        <variable cmeta:id="environment.mu_P7" name="mu_P7" units="J_per_mol"/>
+        <variable name="v_P7" units="fmol_per_sec"/>
+        <variable cmeta:id="environment.mu_P_i" name="mu_P_i" units="J_per_mol"/>
+        <variable name="v_P_i" units="fmol_per_sec"/>
+        <variable cmeta:id="environment.V_mem" name="V_mem" units="volt"/>
+        <variable name="I_mem" units="fA"/>
+        <variable name="Af_R13" units="J_per_mol"/>
+        <variable name="Ar_R13" units="J_per_mol"/>
+        <variable cmeta:id="environment.v_R13" name="v_R13" units="fmol_per_sec"/>
+        <variable name="Af_R15" units="J_per_mol"/>
+        <variable name="Ar_R15" units="J_per_mol"/>
+        <variable cmeta:id="environment.v_R15" name="v_R15" units="fmol_per_sec"/>
+        <variable name="Af_R6" units="J_per_mol"/>
+        <variable name="Ar_R6" units="J_per_mol"/>
+        <variable cmeta:id="environment.v_R6" name="v_R6" units="fmol_per_sec"/>
+        <!--   var Af_R7: J_per_mol;
+   var Ar_R7: J_per_mol;
+    var{environment.v_R7} v_R7: fmol_per_sec;-->
+        <variable cmeta:id="environment.mu_P14" name="mu_P14" units="J_per_mol"/>
+        <variable name="v_P14" units="fmol_per_sec"/>
+        <!--     var{environment.mu_P15} mu_P15: J_per_mol;
+      var v_P15: fmol_per_sec;
+       var Af_R14: J_per_mol;
+       var Ar_R14: J_per_mol;
+       var{environment.v_R14} v_R14: fmol_per_sec;-->
+        <variable cmeta:id="environment.mu_P1" name="mu_P1" units="J_per_mol"/>
+        <variable name="v_P1" units="fmol_per_sec"/>
+        <!--     var{environment.mu_P2} mu_P2: J_per_mol;
+     var v_P2: fmol_per_sec;-->
+        <variable cmeta:id="environment.mu_P3" name="mu_P3" units="J_per_mol"/>
+        <variable name="v_P3" units="fmol_per_sec"/>
+        <!--        var{environment.mu_P4} mu_P4: J_per_mol;
+        var v_P4: fmol_per_sec;-->
+        <!--      var{environment.mu_P5} mu_P5: J_per_mol;
+      var v_P5: fmol_per_sec;-->
+        <variable cmeta:id="environment.mu_P6" name="mu_P6" units="J_per_mol"/>
+        <variable name="v_P6" units="fmol_per_sec"/>
+        <variable name="Af_R1" units="J_per_mol"/>
+        <variable name="Ar_R1" units="J_per_mol"/>
+        <variable cmeta:id="environment.v_R1" name="v_R1" units="fmol_per_sec"/>
+        <!--    var Af_R2: J_per_mol;
+     var Ar_R2: J_per_mol;
+     var{environment.v_R2} v_R2: fmol_per_sec;-->
+        <variable name="Af_R3" units="J_per_mol"/>
+        <variable name="Ar_R3" units="J_per_mol"/>
+        <variable cmeta:id="environment.v_R3" name="v_R3" units="fmol_per_sec"/>
+        <!--        var Af_R4: J_per_mol;
+        var Ar_R4: J_per_mol;
+        var{environment.v_R4} v_R4: fmol_per_sec;-->
+        <!--      var Af_R5: J_per_mol;
+      var Ar_R5: J_per_mol;
+      var{environment.v_R5} v_R5: fmol_per_sec;-->
+        <!--        var{environment.mu_P10} mu_P10: J_per_mol;
+       var v_P10: fmol_per_sec;-->
+        <!--     var{environment.mu_P11} mu_P11: J_per_mol;
+     var v_P11: fmol_per_sec;-->
+        <!--      var{environment.mu_P12} mu_P12: J_per_mol;
+      var v_P12: fmol_per_sec;-->
+        <variable cmeta:id="environment.mu_P13" name="mu_P13" units="J_per_mol"/>
+        <variable name="v_P13" units="fmol_per_sec"/>
+        <!--      var{environment.mu_P8} mu_P8: J_per_mol;
+      var v_P8: fmol_per_sec;-->
+        <!--       var{environment.mu_P9} mu_P9: J_per_mol;
+       var v_P9: fmol_per_sec;-->
+        <!--        var Af_R10: J_per_mol;
+        var Ar_R10: J_per_mol;
+        var{environment.v_R10} v_R10: fmol_per_sec;-->
+        <!--    var Af_R11: J_per_mol;
+    var Ar_R11: J_per_mol;
+    var{environment.v_R11} v_R11: fmol_per_sec;-->
+        <!--       var Af_R12: J_per_mol;
+       var Ar_R12: J_per_mol;
+       var{environment.v_R12} v_R12: fmol_per_sec;-->
+        <variable name="Af_R8" units="J_per_mol"/>
+        <variable name="Ar_R8" units="J_per_mol"/>
+        <variable cmeta:id="environment.v_R8" name="v_R8" units="fmol_per_sec"/>
+        <!--        var Af_R9: J_per_mol;
+        var Ar_R9: J_per_mol;
+        var{environment.v_R9} v_R9: fmol_per_sec;-->
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>zF_5</ci>
+                <apply>
+                    <times/>
+                    <ci>z_5</ci>
+                    <ci>F</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>zF_8</ci>
+                <apply>
+                    <times/>
+                    <ci>z_8</ci>
+                    <ci>F</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_H</ci>
+                <ci>v_R13</ci>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>mu_H</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                    <apply>
+                        <ln/>
+                        <apply>
+                            <times/>
+                            <ci>K_H</ci>
+                            <ci>x_H</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_Ke</ci>
+                <apply>
+                    <times/>
+                    <apply>
+                        <minus/>
+                        <cn cellml:units="dimensionless">2</cn>
+                    </apply>
+                    <ci>v_R8</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>mu_Ke</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                    <apply>
+                        <ln/>
+                        <apply>
+                            <times/>
+                            <ci>K_Ke</ci>
+                            <ci>x_Ke</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_Ki</ci>
+                <apply>
+                    <times/>
+                    <cn cellml:units="dimensionless">2</cn>
+                    <ci>v_R1</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>mu_Ki</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                    <apply>
+                        <ln/>
+                        <apply>
+                            <times/>
+                            <ci>K_Ki</ci>
+                            <ci>x_Ki</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_MgADP</ci>
+                <ci>v_R6</ci>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>mu_MgADP</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                    <apply>
+                        <ln/>
+                        <apply>
+                            <times/>
+                            <ci>K_MgADP</ci>
+                            <ci>x_MgADP</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_MgATP</ci>
+                <apply>
+                    <minus/>
+                    <ci>v_R15</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>mu_MgATP</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                    <apply>
+                        <ln/>
+                        <apply>
+                            <times/>
+                            <ci>K_MgATP</ci>
+                            <ci>x_MgATP</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_Nae</ci>
+                <apply>
+                    <times/>
+                    <cn cellml:units="dimensionless">3</cn>
+                    <ci>v_R8</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>mu_Nae</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                    <apply>
+                        <ln/>
+                        <apply>
+                            <times/>
+                            <ci>K_Nae</ci>
+                            <ci>x_Nae</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_Nai</ci>
+                <apply>
+                    <times/>
+                    <apply>
+                        <minus/>
+                        <cn cellml:units="dimensionless">3</cn>
+                    </apply>
+                    <ci>v_R3</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>mu_Nai</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                    <apply>
+                        <ln/>
+                        <apply>
+                            <times/>
+                            <ci>K_Nai</ci>
+                            <ci>x_Nai</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_P7</ci>
+                <apply>
+                    <minus/>
+                    <ci>v_R6</ci>
+                    <ci>v_R8</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>x_P7</ci>
+                </apply>
+                <ci>v_P7</ci>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>mu_P7</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                    <apply>
+                        <ln/>
+                        <apply>
+                            <times/>
+                            <ci>K_7</ci>
+                            <ci>x_P7</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_P_i</ci>
+                <ci>v_R13</ci>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>mu_P_i</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                    <apply>
+                        <ln/>
+                        <apply>
+                            <times/>
+                            <ci>K_P</ci>
+                            <ci>x_P_i</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>I_mem</ci>
+                <apply>
+                    <plus/>
+                    <apply>
+                        <times/>
+                        <ci>zF_5</ci>
+                        <ci>v_R3</ci>
+                    </apply>
+                    <apply>
+                        <times/>
+                        <ci>zF_8</ci>
+                        <ci>v_R8</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>V_mem</ci>
+                <apply>
+                    <divide/>
+                    <ci>q_mem</ci>
+                    <ci>C_m</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>Af_R13</ci>
+                <ci>mu_P13</ci>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>Ar_R13</ci>
+                <apply>
+                    <plus/>
+                    <ci>mu_P14</ci>
+                    <ci>mu_P_i</ci>
+                    <ci>mu_H</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_R13</ci>
+                <apply>
+                    <times/>
+                    <ci>kappa_13</ci>
+                    <apply>
+                        <minus/>
+                        <apply>
+                            <exp/>
+                            <apply>
+                                <divide/>
+                                <ci>Af_R13</ci>
+                                <apply>
+                                    <times/>
+                                    <ci>R</ci>
+                                    <ci>T</ci>
+                                </apply>
+                            </apply>
+                        </apply>
+                        <apply>
+                            <exp/>
+                            <apply>
+                                <divide/>
+                                <ci>Ar_R13</ci>
+                                <apply>
+                                    <times/>
+                                    <ci>R</ci>
+                                    <ci>T</ci>
+                                </apply>
+                            </apply>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>Af_R15</ci>
+                <apply>
+                    <plus/>
+                    <ci>mu_P14</ci>
+                    <ci>mu_MgATP</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>Ar_R15</ci>
+                <ci>mu_P1</ci>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_R15</ci>
+                <apply>
+                    <times/>
+                    <ci>kappa_15</ci>
+                    <apply>
+                        <minus/>
+                        <apply>
+                            <exp/>
+                            <apply>
+                                <divide/>
+                                <ci>Af_R15</ci>
+                                <apply>
+                                    <times/>
+                                    <ci>R</ci>
+                                    <ci>T</ci>
+                                </apply>
+                            </apply>
+                        </apply>
+                        <apply>
+                            <exp/>
+                            <apply>
+                                <divide/>
+                                <ci>Ar_R15</ci>
+                                <apply>
+                                    <times/>
+                                    <ci>R</ci>
+                                    <ci>T</ci>
+                                </apply>
+                            </apply>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>Af_R6</ci>
+                <ci>mu_P6</ci>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>Ar_R6</ci>
+                <apply>
+                    <plus/>
+                    <ci>mu_P7</ci>
+                    <ci>mu_MgADP</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_R6</ci>
+                <apply>
+                    <times/>
+                    <ci>kappa_6</ci>
+                    <apply>
+                        <minus/>
+                        <apply>
+                            <exp/>
+                            <apply>
+                                <divide/>
+                                <ci>Af_R6</ci>
+                                <apply>
+                                    <times/>
+                                    <ci>R</ci>
+                                    <ci>T</ci>
+                                </apply>
+                            </apply>
+                        </apply>
+                        <apply>
+                            <exp/>
+                            <apply>
+                                <divide/>
+                                <ci>Ar_R6</ci>
+                                <apply>
+                                    <times/>
+                                    <ci>R</ci>
+                                    <ci>T</ci>
+                                </apply>
+                            </apply>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <!--       Af_R7 = mu_P7;
+        Ar_R7 = mu_P8;
+        v_R7 = kappa_7*(exp(Af_R7/(R*T))-exp(Ar_R7/(R*T)));-->
+            <apply>
+                <eq/>
+                <ci>v_P14</ci>
+                <apply>
+                    <minus/>
+                    <ci>v_R13</ci>
+                    <ci>v_R15</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>x_P14</ci>
+                </apply>
+                <ci>v_P14</ci>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>mu_P14</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                    <apply>
+                        <ln/>
+                        <apply>
+                            <times/>
+                            <ci>K_14</ci>
+                            <ci>x_P14</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <!--   v_P15 = v_R14-v_R15;
+   ode(x_P15, t) = v_P15;
+   mu_P15 = R*T*ln(K_15*x_P15);
+  Af_R14 = mu_P14+mu_MgATP;
+  Ar_R14 = mu_P15;
+  v_R14 = kappa_14*(exp(Af_R14/(R*T))-exp(Ar_R14/(R*T)));-->
+            <apply>
+                <eq/>
+                <ci>v_P1</ci>
+                <apply>
+                    <minus/>
+                    <ci>v_R15</ci>
+                    <ci>v_R1</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>x_P1</ci>
+                </apply>
+                <ci>v_P1</ci>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>mu_P1</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                    <apply>
+                        <ln/>
+                        <apply>
+                            <times/>
+                            <ci>K_1</ci>
+                            <ci>x_P1</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <!--       v_P2 = v_R1-v_R2;
+       ode(x_P2, t) = v_P2;
+       mu_P2 = R*T*ln(K_2*x_P2);-->
+            <apply>
+                <eq/>
+                <ci>v_P3</ci>
+                <apply>
+                    <minus/>
+                    <ci>v_R1</ci>
+                    <ci>v_R3</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>x_P3</ci>
+                </apply>
+                <ci>v_P3</ci>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>mu_P3</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                    <apply>
+                        <ln/>
+                        <apply>
+                            <times/>
+                            <ci>K_3</ci>
+                            <ci>x_P3</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <!--     v_P4 = v_R3-v_R4;
+     ode(x_P4, t) = v_P4;
+     mu_P4 = R*T*ln(K_4*x_P4);-->
+            <!--   v_P5 = v_R3-v_R5;
+   ode(x_P5, t) = v_P5;
+   mu_P5 = R*T*ln(K_5*x_P5);-->
+            <apply>
+                <eq/>
+                <ci>v_P6</ci>
+                <apply>
+                    <minus/>
+                    <ci>v_R3</ci>
+                    <ci>v_R6</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>x_P6</ci>
+                </apply>
+                <ci>v_P6</ci>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>mu_P6</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                    <apply>
+                        <ln/>
+                        <apply>
+                            <times/>
+                            <ci>K_6</ci>
+                            <ci>x_P6</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>Af_R1</ci>
+                <ci>mu_P1</ci>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>Ar_R1</ci>
+                <apply>
+                    <plus/>
+                    <ci>mu_P3</ci>
+                    <apply>
+                        <times/>
+                        <cn cellml:units="dimensionless">2</cn>
+                        <ci>mu_Ki</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_R1</ci>
+                <apply>
+                    <times/>
+                    <ci>kappa_1</ci>
+                    <apply>
+                        <minus/>
+                        <apply>
+                            <exp/>
+                            <apply>
+                                <divide/>
+                                <ci>Af_R1</ci>
+                                <apply>
+                                    <times/>
+                                    <ci>R</ci>
+                                    <ci>T</ci>
+                                </apply>
+                            </apply>
+                        </apply>
+                        <apply>
+                            <exp/>
+                            <apply>
+                                <divide/>
+                                <ci>Ar_R1</ci>
+                                <apply>
+                                    <times/>
+                                    <ci>R</ci>
+                                    <ci>T</ci>
+                                </apply>
+                            </apply>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <!--       Af_R2 = mu_P2;
+       Ar_R2 = mu_P3+mu_Ki;
+       v_R2 = kappa_2*(exp(Af_R2/(R*T))-exp(Ar_R2/(R*T)));-->
+            <apply>
+                <eq/>
+                <ci>Af_R3</ci>
+                <apply>
+                    <plus/>
+                    <ci>mu_P3</ci>
+                    <apply>
+                        <times/>
+                        <cn cellml:units="dimensionless">3</cn>
+                        <ci>mu_Nai</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>Ar_R3</ci>
+                <apply>
+                    <plus/>
+                    <apply>
+                        <times/>
+                        <ci>zF_5</ci>
+                        <ci>V_mem</ci>
+                    </apply>
+                    <ci>mu_P6</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_R3</ci>
+                <apply>
+                    <times/>
+                    <ci>kappa_3</ci>
+                    <apply>
+                        <minus/>
+                        <apply>
+                            <exp/>
+                            <apply>
+                                <divide/>
+                                <ci>Af_R3</ci>
+                                <apply>
+                                    <times/>
+                                    <ci>R</ci>
+                                    <ci>T</ci>
+                                </apply>
+                            </apply>
+                        </apply>
+                        <apply>
+                            <exp/>
+                            <apply>
+                                <divide/>
+                                <ci>Ar_R3</ci>
+                                <apply>
+                                    <times/>
+                                    <ci>R</ci>
+                                    <ci>T</ci>
+                                </apply>
+                            </apply>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <!--      Af_R4 = mu_P4+mu_Nai;
+      Ar_R4 = mu_P5;
+      v_R4 = kappa_4*(exp(Af_R4/(R*T))-exp(Ar_R4/(R*T)));-->
+            <!--    Af_R5 = mu_P5+2{dimensionless}*mu_Nai;
+    Ar_R5 = mu_P6+zF_5*V_mem;
+    v_R5 = kappa_5*(exp(Af_R5/(R*T))-exp(Ar_R5/(R*T)));-->
+            <!--       v_P10 = v_R9-v_R10;
+       ode(x_P10, t) = v_P10;
+       mu_P10 = R*T*ln(K_10*x_P10);-->
+            <!--     v_P11 = v_R8-v_R11;
+     ode(x_P11, t) = v_P11;
+     mu_P11 = R*T*ln(K_11*x_P11);-->
+            <!--        v_P12 = v_R11-v_R12;
+        ode(x_P12, t) = v_P12;
+        mu_P12 = R*T*ln(K_12*x_P12);-->
+            <apply>
+                <eq/>
+                <ci>v_P13</ci>
+                <apply>
+                    <minus/>
+                    <ci>v_R8</ci>
+                    <ci>v_R13</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>x_P13</ci>
+                </apply>
+                <ci>v_P13</ci>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>mu_P13</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                    <apply>
+                        <ln/>
+                        <apply>
+                            <times/>
+                            <ci>K_13</ci>
+                            <ci>x_P13</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <!--        v_P8 = v_R7-v_R8;
+        ode(x_P8, t) = v_P8;
+        mu_P8 = R*T*ln(K_8*x_P8);-->
+            <!--      v_P9 = v_R8-v_R9;
+      ode(x_P9, t) = v_P9;
+      mu_P9 = R*T*ln(K_9*x_P9);-->
+            <!--       Af_R10 = mu_P10;
+       Ar_R10 = mu_P11+mu_Nae;
+       v_R10 = kappa_10*(exp(Af_R10/(R*T))-exp(Ar_R10/(R*T)));-->
+            <!--   Af_R11 = mu_P11+2{dimensionless}*mu_Ke;
+   Ar_R11 = mu_P13;
+   v_R11 = kappa_11*(exp(Af_R11/(R*T))-exp(Ar_R11/(R*T)));-->
+            <!--     Af_R12 = mu_P12+mu_Ke;
+     Ar_R12 = mu_P13;
+     v_R12 = kappa_12*(exp(Af_R12/(R*T))-exp(Ar_R12/(R*T)));-->
+            <apply>
+                <eq/>
+                <ci>Af_R8</ci>
+                <apply>
+                    <plus/>
+                    <ci>mu_P7</ci>
+                    <apply>
+                        <times/>
+                        <cn cellml:units="dimensionless">2</cn>
+                        <ci>mu_Ke</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>Ar_R8</ci>
+                <apply>
+                    <plus/>
+                    <ci>mu_P13</ci>
+                    <apply>
+                        <times/>
+                        <cn cellml:units="dimensionless">3</cn>
+                        <ci>mu_Nae</ci>
+                    </apply>
+                    <apply>
+                        <times/>
+                        <ci>zF_8</ci>
+                        <ci>V_mem</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_R8</ci>
+                <apply>
+                    <times/>
+                    <ci>kappa_8</ci>
+                    <apply>
+                        <minus/>
+                        <apply>
+                            <exp/>
+                            <apply>
+                                <divide/>
+                                <ci>Af_R8</ci>
+                                <apply>
+                                    <times/>
+                                    <ci>R</ci>
+                                    <ci>T</ci>
+                                </apply>
+                            </apply>
+                        </apply>
+                        <apply>
+                            <exp/>
+                            <apply>
+                                <divide/>
+                                <ci>Ar_R8</ci>
+                                <apply>
+                                    <times/>
+                                    <ci>R</ci>
+                                    <ci>T</ci>
+                                </apply>
+                            </apply>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+        </math>
+        <!--        Af_R9 = mu_P9;
+       Ar_R9 = mu_P11+2{dimensionless}*mu_Nae;
+       v_R9 = kappa_9*(exp(Af_R9/(R*T))-exp(Ar_R9/(R*T)));-->
+    </component>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.mu_P14">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_14"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Pump state Ee (K2) chemical potential</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_14">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00378"/>
+            </hasPhysicalDefinition>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.mu_P5">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_21"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Pump state ATP-Ei Na2</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_21">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00378"/>
+            </hasPhysicalDefinition>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.mu_P1">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_17"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Pump state ATP-E_i K_2</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_17">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00378"/>
+            </hasPhysicalDefinition>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.mu_Ki">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_2"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Intracellular K+</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_2">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00378"/>
+            </hasPhysicalDefinition>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.v_R13">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_10"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R13</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_10">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00592"/>
+            </hasPhysicalDefinition>
+            <physicalPropertyOf xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_0"/>
+            </physicalPropertyOf>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_0">
+            <name xmlns="http://www.bhi.washington.edu/SemSim#" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R13</name>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.mu_P10">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_28"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Pump state P-E_e Na_1</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_28">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00378"/>
+            </hasPhysicalDefinition>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.mu_Ke">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_1"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Extracellular K+</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_1">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00378"/>
+            </hasPhysicalDefinition>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.v_R4">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_26"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R4</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_26">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00592"/>
+            </hasPhysicalDefinition>
+            <physicalPropertyOf xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_8"/>
+            </physicalPropertyOf>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_8">
+            <name xmlns="http://www.bhi.washington.edu/SemSim#" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R4</name>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.v_R8">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_37"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R8</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_37">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00592"/>
+            </hasPhysicalDefinition>
+            <physicalPropertyOf xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_13"/>
+            </physicalPropertyOf>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_13">
+            <name xmlns="http://www.bhi.washington.edu/SemSim#" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R8</name>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.mu_P_i">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_8"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Chemical potential of free inorganic phosphate (Pi)</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_8">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00378"/>
+            </hasPhysicalDefinition>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.mu_H">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_0"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Intracellular H+</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_0">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00378"/>
+            </hasPhysicalDefinition>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.mu_P6">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_22"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Pump state ATP-Ei Na3 chemical potential</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_22">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00378"/>
+            </hasPhysicalDefinition>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.mu_P15">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_15"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Pump state ATP-Ee (K2) chemical potential</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_15">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00378"/>
+            </hasPhysicalDefinition>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.mu_P2">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_18"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Pump state ATP-Ei K1 chemical potential</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_18">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00378"/>
+            </hasPhysicalDefinition>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.v_R10">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_34"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R10</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_34">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00593"/>
+            </hasPhysicalDefinition>
+            <physicalPropertyOf xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_10"/>
+            </physicalPropertyOf>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_10">
+            <name xmlns="http://www.bhi.washington.edu/SemSim#" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R10</name>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.v_R14">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_16"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R14</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_16">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00592"/>
+            </hasPhysicalDefinition>
+            <physicalPropertyOf xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_4"/>
+            </physicalPropertyOf>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_4">
+            <name xmlns="http://www.bhi.washington.edu/SemSim#" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R14</name>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.mu_P11">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_29"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Pump state P-E_e potential</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_29">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00378"/>
+            </hasPhysicalDefinition>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.v_R7">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_13"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R7</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_13">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00592"/>
+            </hasPhysicalDefinition>
+            <physicalPropertyOf xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_3"/>
+            </physicalPropertyOf>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_3">
+            <name xmlns="http://www.bhi.washington.edu/SemSim#" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R7</name>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.v_R3">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_25"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R3</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_25">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00592"/>
+            </hasPhysicalDefinition>
+            <physicalPropertyOf xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_7"/>
+            </physicalPropertyOf>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_7">
+            <name xmlns="http://www.bhi.washington.edu/SemSim#" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R3</name>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.mu_P7">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_7"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Chemical potential of the pump state P-Ei (Na3)</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_7">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00378"/>
+            </hasPhysicalDefinition>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.mu_P3">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_19"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Pump state ATP-Ei</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_19">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00378"/>
+            </hasPhysicalDefinition>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.v_R11">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_35"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R11</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_35">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00592"/>
+            </hasPhysicalDefinition>
+            <physicalPropertyOf xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_11"/>
+            </physicalPropertyOf>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_11">
+            <name xmlns="http://www.bhi.washington.edu/SemSim#" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R11</name>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.mu_MgADP">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_3"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Intracellular MgADP</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_3">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00378"/>
+            </hasPhysicalDefinition>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.v_R15">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_11"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R15</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_11">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00592"/>
+            </hasPhysicalDefinition>
+            <physicalPropertyOf xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_1"/>
+            </physicalPropertyOf>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_1">
+            <name xmlns="http://www.bhi.washington.edu/SemSim#" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R15</name>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.mu_P12">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_30"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Pump state P-E_e K_1 potential</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_30">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00378"/>
+            </hasPhysicalDefinition>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.v_R6">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_12"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R6</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_12">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00592"/>
+            </hasPhysicalDefinition>
+            <physicalPropertyOf xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_2"/>
+            </physicalPropertyOf>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_2">
+            <name xmlns="http://www.bhi.washington.edu/SemSim#" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R6</name>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#metaid0">
+            <odelName xmlns="m" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Terkildsen_NaK_BG</odelName>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.mu_MgATP">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_4"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Intracellullar MgATP</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_4">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00378"/>
+            </hasPhysicalDefinition>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.mu_P8">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_32"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Chemical potential of P-Ee Na3 pump state</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_32">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00378"/>
+            </hasPhysicalDefinition>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.v_R2">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_24"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R2</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_24">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00592"/>
+            </hasPhysicalDefinition>
+            <physicalPropertyOf xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_6"/>
+            </physicalPropertyOf>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_6">
+            <name xmlns="http://www.bhi.washington.edu/SemSim#" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R2</name>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.mu_Nae">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_5"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Extracellular Na+</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_5">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00378"/>
+            </hasPhysicalDefinition>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.mu_P13">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_31"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Pump state P-Ee K2 potential</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_31">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00378"/>
+            </hasPhysicalDefinition>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.mu_P4">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_20"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Pump state ARP Ei Na1 chemical potential</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_20">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00378"/>
+            </hasPhysicalDefinition>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.V_mem">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_9"/>
+            </isComputationalComponentFor>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_9">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00378"/>
+            </hasPhysicalDefinition>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.mu_Nai">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_6"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Intracellular Na+</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_6">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00378"/>
+            </hasPhysicalDefinition>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.v_R12">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_36"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R12</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_36">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00592"/>
+            </hasPhysicalDefinition>
+            <physicalPropertyOf xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_12"/>
+            </physicalPropertyOf>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_12">
+            <name xmlns="http://www.bhi.washington.edu/SemSim#" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R12</name>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.v_R5">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_27"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R5</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_27">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00592"/>
+            </hasPhysicalDefinition>
+            <physicalPropertyOf xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_9"/>
+            </physicalPropertyOf>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_9">
+            <name xmlns="http://www.bhi.washington.edu/SemSim#" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R5</name>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.v_R9">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_38"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R9</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_38">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00592"/>
+            </hasPhysicalDefinition>
+            <physicalPropertyOf xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_14"/>
+            </physicalPropertyOf>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_14">
+            <name xmlns="http://www.bhi.washington.edu/SemSim#" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R9</name>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.v_R1">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_23"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate reaction R1</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_23">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00593"/>
+            </hasPhysicalDefinition>
+            <physicalPropertyOf xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_5"/>
+            </physicalPropertyOf>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#process_5">
+            <name xmlns="http://www.bhi.washington.edu/SemSim#" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Molar flow rate associated with reaction R1</name>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#environment.mu_P9">
+            <isComputationalComponentFor xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_33"/>
+            </isComputationalComponentFor>
+            <description xmlns="http://purl.org/dc/terms/" xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace">Pump state chemical potential P-Ee Na1</description>
+        </rdf:Description>
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#property_33">
+            <hasPhysicalDefinition xmlns="http://www.bhi.washington.edu/SemSim#">
+                <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="https://identifiers.org/opb/OPB_00378"/>
+            </hasPhysicalDefinition>
+        </rdf:Description>
+    </rdf:RDF>
+</model>
